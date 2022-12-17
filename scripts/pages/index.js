@@ -1,12 +1,9 @@
-async function getRecipes() {
-  const dataRecipes = await fetch("../data/recipes.js")
+import { recipes } from "../../data/recipes.js";
+console.log(recipes);
 
-  if (dataRecipes) {
-      const data = await dataRecipes.json();
-      console.log(data)
-      return data;
-  }
-  else {
-      return console.log("an error occured")
-  }
-}
+const recipesContainer = document.querySelector(".recipes-container");
+
+recipes.forEach(recipe => {
+  const recipeModel = new recipeFactory(recipe);
+  recipesContainer.appendChild(recipeModel.recipeCardDOM);
+});
