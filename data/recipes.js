@@ -333,7 +333,7 @@ export const recipes = [
       "ingredients":[
           {
               "ingredient": "Reblochon",
-              "quantity": "1"
+              "quantity": 1
           },
           {
               "ingredient": "Pommes de terre",
