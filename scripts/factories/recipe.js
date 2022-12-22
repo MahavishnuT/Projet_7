@@ -33,7 +33,7 @@ function getRecipeCardDOM(name, time, description, ingredients) {
   cardDescription.classList.add("card-text");
 
   const cardIngredients = document.createElement("div");
-  cardIngredients.textContent = getIngredients(ingredients)
+  cardIngredients.textContent = `${getIngredients(ingredients)} : `
   // console.log(getIngredients(ingredients))
 
   cardBody.append(cardTitle, cardTime, cardIngredients, cardDescription);
@@ -45,26 +45,28 @@ function getRecipeCardDOM(name, time, description, ingredients) {
 
 function getIngredients(ingredients) {
 
-  const ingredientsArray = []
+  // let ingredientsObj = {}
 
-    for (let i = 0; i < ingredients.length; i++) {
-      ingredients[i].ingredient;
-      ingredients[i].quantity;
-      ingredients[i].unit;
+    // for (let i = 0; i < ingredients.length; i++) {
 
-      ingredientsArray.push(ingredients[i].ingredient, 
-        ingredients[i].quantity, 
-        ingredients[i].unit)
-      
-    }
-
-  console.log(ingredientsArray)
-  return (ingredientsArray)
+      // Object.assign(ingredientsObj, ingredients[i]);
+      const toObject = (ingredients, ingredient) => Object.fromEntries(ingredients.map((it) => [it[ingredient], it]));
+    // }
+  
+  // console.log(toObject(ingredients))
+  // return (ingredientsObj)
 }
+// function getQuantity(ingredients) {
 
-// function displayIngredients(ingredients) {
-//   for (let i = 0; i < getIngredients(ingredients).length; i++) {
+//   const quantityArray = []
 
-//   }
-//   return (getIngredients(ingredients));
+//     for (let i = 0; i < ingredients.length; i++) {
+
+//       quantityArray.push(ingredients[i].quantity);
+      
+//     }
+  
+//   // console.log(ingredientsArray)
+//   return (quantityArray)
 // }
+
