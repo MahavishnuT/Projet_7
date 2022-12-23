@@ -21,7 +21,6 @@ for (let i = 0; i < recipes.length; i++) {
   });
 }
 const ingredientsNoRepeat = new Set(AllIngredientsArray);
-console.log(ingredientsNoRepeat);
 
 const AllAppliancesArray = [];
 for (let i = 0; i < recipes.length; i++) {
@@ -29,7 +28,6 @@ for (let i = 0; i < recipes.length; i++) {
   AllAppliancesArray.push(appliances);
 }
 const AppliancesNoRepeat = new Set(AllAppliancesArray);
-console.log(AppliancesNoRepeat);
 
 const AllUstensilsArray = [];
 for (let i = 0; i < recipes.length; i++) {
@@ -39,7 +37,6 @@ for (let i = 0; i < recipes.length; i++) {
   }
 }
 const UstensilsNoRepeat = new Set(AllUstensilsArray);
-console.log(UstensilsNoRepeat);
 
 /**
  * Add items to the three dropdown menus
