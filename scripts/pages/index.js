@@ -13,7 +13,7 @@ recipes.forEach(recipe => {
 
 // Gather ingredients, appliance and ustensils with no repeat
 
-const AllIngredientsArray = [];
+export const AllIngredientsArray = [];
 for (let i = 0; i < recipes.length; i++) {
   let ingredients = recipes[i].ingredients;
   ingredients.map(({ingredient}) => {
@@ -22,14 +22,14 @@ for (let i = 0; i < recipes.length; i++) {
 }
 const ingredientsNoRepeat = new Set(AllIngredientsArray);
 
-const AllAppliancesArray = [];
+export const AllAppliancesArray = [];
 for (let i = 0; i < recipes.length; i++) {
   let appliances = recipes[i].appliance;
   AllAppliancesArray.push(appliances);
 }
 const AppliancesNoRepeat = new Set(AllAppliancesArray);
 
-const AllUstensilsArray = [];
+export const AllUstensilsArray = [];
 for (let i = 0; i < recipes.length; i++) {
   for (let j = 0; j < recipes[i].ustensils.length; j++) {
     let ustensils = recipes[i].ustensils[j];

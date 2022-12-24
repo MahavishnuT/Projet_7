@@ -47,7 +47,7 @@ function getRecipeCardDOM(name, time, description, ingredients) {
 
 function getIngredients(ingredients) {
 
-  let ingredientsObj = []
+  let ingredientsArray = []
 
     for (let i = 0; i < ingredients.length; i++) {
       let ingredient = ingredients[i];
@@ -55,8 +55,8 @@ function getIngredients(ingredients) {
         <span class="fw-bold">${ingredient.ingredient ? ingredient.ingredient : ""}</span>
         <span>: ${ingredient.quantity ? ingredient.quantity : ""}  ${ingredient.unit ? ingredient.unit : ""}</span></br>
       `
-      ingredientsObj.push(itemsDOM);
+      ingredientsArray.push(itemsDOM);
     }
   
-  return (ingredientsObj);
+  return (ingredientsArray);
 }
