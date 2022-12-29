@@ -6,10 +6,14 @@ const ingredientsContainer = document.querySelector(".ingredients-container");
 const appliancesContainer = document.querySelector(".appliances-container");
 const ustensilsContainer = document.querySelector(".ustensils-container");
 
-recipes.forEach(recipe => {
-  const recipeModel = new recipeFactory(recipe);
-  recipesContainer.appendChild(recipeModel.recipeCardDOM);
-});
+export function createRecipeList(filteredArray) {
+  filteredArray.forEach(recipe => {
+    // const recipeModel = new recipeFactory(recipe);
+    recipesContainer.innerHTML += new RecipeCard(recipe).recipeCard;
+  });
+}
+
+createRecipeList(recipes);
 
 // Gather ingredients, appliance and ustensils with no repeat
 
