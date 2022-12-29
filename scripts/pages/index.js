@@ -8,7 +8,6 @@ const ustensilsContainer = document.querySelector(".ustensils-container");
 
 export function createRecipeList(filteredArray) {
   filteredArray.forEach(recipe => {
-    // const recipeModel = new recipeFactory(recipe);
     recipesContainer.innerHTML += new RecipeCard(recipe).recipeCard;
   });
 }

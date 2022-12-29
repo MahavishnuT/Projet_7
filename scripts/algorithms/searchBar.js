@@ -1,27 +1,36 @@
-import { AllAppliancesArray, AllIngredientsArray, AllUstensilsArray, createRecipeList } from "../pages/index.js";
+import { createRecipeList } from "../pages/index.js";
+import { recipes } from "../../data/recipes.js";
 
 const searchBar = document.querySelector("#search-bar");
 const recipesContainer = document.querySelector(".recipes-container");
 const allIngredientsDOM = document.querySelectorAll(".ingredientDOM")
 
-console.log(AllIngredientsArray);
-
 searchBar.addEventListener("input", filterRecipes);
 
 function filterRecipes(e) {
   const searchedString = e.target.value.toLowerCase();
-
-  const filteredRecipesArray = [];
-
+  
   if(searchedString.length >= 3) {
+    recipesContainer.innerHTML = "";
     
-    if(AllIngredientsArray.filter(ingredient => ingredient.toLowerCase().includes(searchedString))) {
-      console.log(AllIngredientsArray.filter(ingredient => ingredient.toLowerCase().includes(searchedString)));
-      // createRecipeList(AllIngredientsArray.filter(ingredient => ingredient.toLowerCase().includes(searchedString)))
+    const result = recipes.filter(recipe => {
+      return (recipe.name.toLowerCase().includes(searchedString) || 
+      recipe.description.toLowerCase().includes(searchedString) ||
+      recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(searchedString)))      
+    })
+    console.log(result);
+    createRecipeList(result);
+
+    if(!result.length) {
+      recipesContainer.innerHTML = `
+        <div class="no-result text-center">Aucune recette ne correspond à votre critère... vous pouvez
+        chercher « tarte aux pommes », « poisson », etc.</div>
+      `
     }
-    else {
-      console.log("BOOOOO!");
-    }
+  }
+  else {
+    recipesContainer.innerHTML = "";
+    createRecipeList(recipes);
   }
 
 }
