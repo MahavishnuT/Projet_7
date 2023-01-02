@@ -3,7 +3,6 @@ import { recipes } from "../../data/recipes.js";
 
 const searchBar = document.querySelector("#search-bar");
 const recipesContainer = document.querySelector(".recipes-container");
-const allIngredientsDOM = document.querySelectorAll(".ingredientDOM")
 
 searchBar.addEventListener("input", filterRecipes);
 
