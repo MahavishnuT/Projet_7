@@ -50,7 +50,7 @@ export const UstensilsNoRepeat = new Set(AllUstensilsArray);
 export function addItemsToDropdown(norepeat, container) {
   norepeat.forEach(item => {
     container.innerHTML += `
-    <li><a class="dropdown-item text-white" href="#">${item.charAt(0).toUpperCase() + item.slice(1)}</a></li>
+    <li class="dropdown-item text-white" onclick="addTagToContainer()">${item.charAt(0).toUpperCase() + item.slice(1)}</li>
     `
   });
 }
