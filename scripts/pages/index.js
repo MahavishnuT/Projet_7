@@ -1,10 +1,10 @@
 import { recipes } from "../../data/recipes.js";
-console.log(recipes);
 
 const recipesContainer = document.querySelector(".recipes-container");
 const ingredientsContainer = document.querySelector(".ingredients-container");
 const appliancesContainer = document.querySelector(".appliances-container");
 const ustensilsContainer = document.querySelector(".ustensils-container");
+const tagItems = document.querySelectorAll(".tag-items");
 
 export function createRecipeList(filteredArray) {
   filteredArray.forEach(recipe => {
@@ -60,4 +60,6 @@ addItemsToDropdown(ingredientsNoRepeat, ingredientsContainer);
 addItemsToDropdown(AppliancesNoRepeat,  appliancesContainer);
 
 addItemsToDropdown(UstensilsNoRepeat, ustensilsContainer);
+
+
 

@@ -95,12 +95,3 @@ function getIngredients(ingredients) {
   
   return (ingredientsArray);
 }
-
-// ${this._ingredients.map(ingredient => {
-//   `
-//     <li>
-//       <strong>${ingredient.ingredient}</strong>
-//       ${ingredient.quantity ? `: ${ingredient.quantity}` : ""} ${ingredient.unit ? ingredient.unit : ""}
-//     </li>
-//   `
-// })}

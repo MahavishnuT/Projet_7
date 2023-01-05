@@ -17,7 +17,6 @@ function filterRecipes(e) {
       recipe.description.toLowerCase().includes(searchedString) ||
       recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(searchedString)))      
     })
-    console.log(result);
     createRecipeList(result);
 
     if(!result.length) {

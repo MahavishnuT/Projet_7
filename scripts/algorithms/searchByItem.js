@@ -24,7 +24,6 @@ searchUstensils.addEventListener("input", (event) => ((arg1, arg2) => {
 function filterItems(event, arrayOfItems, containerOfItems) {
   const searchedString = event.target.value.toLowerCase();
   containerOfItems.innerHTML = "";
-  console.log("arrayOfItems", arrayOfItems);
 
   const result = [...arrayOfItems].filter(item => {
     return (item.toLowerCase().includes(searchedString))
