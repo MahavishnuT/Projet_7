@@ -12,9 +12,11 @@ const ustensilsContainer = document.querySelector(".ustensils-container");
 searchIngredients.addEventListener("input", (event) => ((arg1, arg2) => {
   filterItems(event, arg1, arg2);
 })(ingredientsNoRepeat, ingredientsContainer));
+
 searchAppliance.addEventListener("input", (event) => ((arg1, arg2) => {
   filterItems(event, arg1, arg2);
 })(AppliancesNoRepeat, appliancesContainer));
+
 searchUstensils.addEventListener("input", (event) => ((arg1, arg2) => {
   filterItems(event, arg1, arg2);
 })(UstensilsNoRepeat, ustensilsContainer));
