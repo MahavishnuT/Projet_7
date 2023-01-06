@@ -1,8 +1,4 @@
-import { createRecipeList } from "../pages/index.js";
-import { recipes } from "../../data/recipes.js";
-
 const searchBar = document.querySelector("#search-bar");
-const recipesContainer = document.querySelector(".recipes-container");
 
 searchBar.addEventListener("input", filterRecipes);
 

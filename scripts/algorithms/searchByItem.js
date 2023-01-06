@@ -1,13 +1,6 @@
-import { ingredientsNoRepeat, AppliancesNoRepeat, UstensilsNoRepeat, addItemsToDropdown } from "../pages/index.js";
-
 const searchIngredients = document.querySelector(".ingredients-input");
 const searchAppliance = document.querySelector(".appliance-input");
 const searchUstensils = document.querySelector(".ustensils-input");
-const ingredientsContainer = document.querySelector(".ingredients-container");
-const appliancesContainer = document.querySelector(".appliances-container");
-const ustensilsContainer = document.querySelector(".ustensils-container");
-
-
 
 searchIngredients.addEventListener("input", (event) => ((arg1, arg2) => {
   filterItems(event, arg1, arg2);

@@ -1,4 +1,3 @@
-import { recipes } from "../../data/recipes.js";
 
 const recipesContainer = document.querySelector(".recipes-container");
 const ingredientsContainer = document.querySelector(".ingredients-container");
@@ -6,7 +5,7 @@ const appliancesContainer = document.querySelector(".appliances-container");
 const ustensilsContainer = document.querySelector(".ustensils-container");
 const tagItems = document.querySelectorAll(".tag-items");
 
-export function createRecipeList(filteredArray) {
+function createRecipeList(filteredArray) {
   filteredArray.forEach(recipe => {
     recipesContainer.innerHTML += new RecipeCard(recipe).recipeCard;
   });
@@ -23,14 +22,14 @@ for (let i = 0; i < recipes.length; i++) {
     AllIngredientsArray.push(ingredient);
   });
 }
-export const ingredientsNoRepeat = new Set(AllIngredientsArray);
+ const ingredientsNoRepeat = new Set(AllIngredientsArray);
 
 const AllAppliancesArray = [];
 for (let i = 0; i < recipes.length; i++) {
   let appliances = recipes[i].appliance;
   AllAppliancesArray.push(appliances);
 }
-export const AppliancesNoRepeat = new Set(AllAppliancesArray);
+ const AppliancesNoRepeat = new Set(AllAppliancesArray);
 
 const AllUstensilsArray = [];
 for (let i = 0; i < recipes.length; i++) {
@@ -39,7 +38,7 @@ for (let i = 0; i < recipes.length; i++) {
     AllUstensilsArray.push(ustensils);
   }
 }
-export const UstensilsNoRepeat = new Set(AllUstensilsArray);
+ const UstensilsNoRepeat = new Set(AllUstensilsArray);
 
 /**
  * Add items to the three dropdown menus
@@ -47,7 +46,7 @@ export const UstensilsNoRepeat = new Set(AllUstensilsArray);
  * @param {HTMLElement} container 
  */
 
-export function addItemsToDropdown(norepeat, container) {
+ function addItemsToDropdown(norepeat, container) {
   norepeat.forEach(item => {
     container.innerHTML += `
     <li class="dropdown-item text-white" onclick="addTagToContainer(event)">${item.charAt(0).toUpperCase() + item.slice(1)}</li>

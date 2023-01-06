@@ -1,41 +1,61 @@
-import { createRecipeList } from "../pages/index.js";
-import { recipes } from "../../data/recipes.js";
-
-// const tagItems = document.querySelectorAll(".tag-items");
-
 const tagsContainer = document.querySelector("#tags");
+const closeTagButtons = document.querySelectorAll(".close-tag");
 const arrayOfTagItems = [];
 
 function addTagToContainer(event) {
+  arrayOfTagItems.push(event.target.textContent);
 
   tagsContainer.innerHTML += `
     <div class="col-2">
       <div class="py-2 tag-item">
         ${event.target.textContent}
+        <button onclick="removeTag(event, arrayOfTagItems)">
+          <i class="bi bi-x"></i>
+        </button>
       </div>
     </div>
   `
-  arrayOfTagItems.push(event.target.textContent);
-  console.log(arrayOfTagItems);
-  filterRecipesByTags();
+  filterRecipesByTags(arrayOfTagItems);
 }
 
-function loopOnArrayOfTagItems() {
-  arrayOfTagItems.forEach(element => {
-    return element
+function filterRecipesByTags(array) {
+
+  const result = recipes.filter((recipe) => {
+    return array.every((item) => {
+      const formatedItem = item.toLowerCase();
+      return (
+        recipe.ingredients.some((i) => {
+					return i.ingredient.toLowerCase().includes(formatedItem);
+				}) ||
+				recipe.appliance.toLowerCase().includes(formatedItem) ||
+				recipe.ustensils.some((ustensil) => {
+					return ustensil.toLowerCase() === formatedItem;
+        })
+      )
+    })
   })
+
+  if (result.length) {
+    recipesContainer.innerHTML = "";
+    createRecipeList(result);
+  }
 }
 
-function filterRecipesByTags() {
-
-  const result = recipes.filter(recipe => {
-    return (recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(loopOnArrayOfTagItems())) ||
-    recipe.appliance.toLowerCase().includes(loopOnArrayOfTagItems()) ||
-    recipe.ustensils.forEach((ustensil) => ustensil.toLowerCase().includes(loopOnArrayOfTagItems()))
-    )
-  })
-
-  createRecipeList(result);
+function removeTag(event, array) {
+  const targettedButton = event.target;
+  const index = array.indexOf(targettedButton.parentElement.innerText.trim());
+  console.log("index", index);
+  console.log("array", array);
+  targettedButton.parentElement.parentElement.remove();
+	array.splice(index, 1);
+  console.log("array.splice(index, 1) :", array.splice(index, 1))
+  if (!array.length) {
+		recipesContainer.innerHTML = "";
+		createRecipeList(recipes);
+	} else {
+		filterRecipesByTags(array);
+    console.log("final array after removal :", array)
+	}
 }
 
 
