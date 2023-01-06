@@ -42,17 +42,18 @@ function filterRecipesByTags(array) {
 }
 
 function removeTag(event, array) {
-  const targettedButton = event.target;
-  const index = array.indexOf(targettedButton.parentElement.innerText.trim());
-  console.log("index", index);
-  console.log("array", array);
-  targettedButton.parentElement.parentElement.remove();
+  const targetedButton = event.target;
+  const index = array.indexOf(targetedButton.parentElement.innerText.trim());
+
 	array.splice(index, 1);
-  console.log("array.splice(index, 1) :", array.splice(index, 1))
+  targetedButton.parentElement.parentElement.remove();
+
   if (!array.length) {
 		recipesContainer.innerHTML = "";
 		createRecipeList(recipes);
-	} else {
+    console.log("final array after removal :", array)
+	} 
+  else {
 		filterRecipesByTags(array);
     console.log("final array after removal :", array)
 	}
