@@ -42,11 +42,12 @@ for (let i = 0; i < recipes.length; i++) {
 
 /**
  * Add items to the three dropdown menus
- * @param {Array} norepeat 
+ * @param {Set} norepeat 
  * @param {HTMLElement} container 
  */
 
  function addItemsToDropdown(norepeat, container) {
+  container.innerHTML = "";
   norepeat.forEach(item => {
     container.innerHTML += `
     <li class="dropdown-item text-white" onclick="addTagToContainer(event)">${item.charAt(0).toUpperCase() + item.slice(1)}</li>

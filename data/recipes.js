@@ -59,7 +59,7 @@ const recipes = [
               "quantity" : 5
           },
           {
-              "ingredient" : "Lait de Coco",
+              "ingredient" : "Lait de coco",
               "quantity" : 100,
               "unit" : "ml"
           }
@@ -741,7 +741,7 @@ const recipes = [
           }
       ],
       "time": 30,
-      "description":"Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oignons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
+      "description":"Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oignons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomate à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
       "appliance": "Casserole",
       "ustensils":["Cuillère en bois", "louche", "couteau"]
   },
@@ -1290,7 +1290,7 @@ const recipes = [
               "quantity": 1
           },
           {
-              "ingredient": "Coulis de tomates",
+              "ingredient": "Coulis de tomate",
               "quantity": 20,
               "unit": "cl"
           },
@@ -1302,7 +1302,7 @@ const recipes = [
           
       ],
       "time": 60,
-      "description":"Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
+      "description":"Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomate. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
       "appliance": "Four",
       "ustensils":["couteau", "cuillère en bois", "Poêle à frire"]
   },

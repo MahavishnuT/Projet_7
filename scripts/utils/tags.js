@@ -15,7 +15,7 @@ function addTagToContainer(event) {
       </div>
     </div>
   `
-  filterRecipesByTags(arrayOfTagItems);
+  filterRecipesByTags(arrayOfTagItems, event);
 }
 
 function filterRecipesByTags(array) {
@@ -35,10 +35,36 @@ function filterRecipesByTags(array) {
     })
   })
 
+  console.log("result", result);
+  console.log("ingredientsNoRepeat", ingredientsNoRepeat);
+
   if (result.length) {
     recipesContainer.innerHTML = "";
     createRecipeList(result);
+    filterItemListsByRecipeResult(result)
   }
+}
+
+function filterItemListsByRecipeResult(resultArrayOfObjects) {
+  const ingredientsSetFiltered = new Set();
+  resultArrayOfObjects.forEach(ingredient => {
+    ingredient.ingredients.forEach(ingredient2 => {
+      ingredientsSetFiltered.add(ingredient2.ingredient);
+    })
+  })
+
+  var tagsDOM = document.querySelectorAll(".tag-item");
+  console.log("tagsDOM",tagsDOM)
+  tagsDOM.forEach(tag => {
+    ingredientsSetFiltered.forEach(ingredient => {
+      if(tag.innerText.toLowerCase().trim() === ingredient.toLowerCase()) {
+        ingredientsSetFiltered.delete(ingredient);
+      }
+    })
+  })
+
+  addItemsToDropdown(ingredientsSetFiltered, ingredientsContainer);
+  console.log("ingredientsSetFiltered", ingredientsSetFiltered);
 }
 
 function removeTag(event, array) {
@@ -51,11 +77,10 @@ function removeTag(event, array) {
   if (!array.length) {
 		recipesContainer.innerHTML = "";
 		createRecipeList(recipes);
-    console.log("final array after removal :", array)
+    addItemsToDropdown(ingredientsNoRepeat, ingredientsContainer);
 	} 
   else {
 		filterRecipesByTags(array);
-    console.log("final array after removal :", array)
 	}
 }
 
