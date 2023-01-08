@@ -53,18 +53,41 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
     })
   })
 
-  var tagsDOM = document.querySelectorAll(".tag-item");
+  const applianceSetFiltered = new Set();
+  resultArrayOfObjects.forEach(appliance => {
+    applianceSetFiltered.add(appliance.appliance);   
+  })
+
+  const ustensilsSetFiltered = new Set();
+  resultArrayOfObjects.forEach(ustensil => {
+    ustensil.ustensils.forEach(ustensil2 => {
+      ustensilsSetFiltered.add(ustensil2);
+    })
+  })
+  
+  const tagsDOM = document.querySelectorAll(".tag-item");
   console.log("tagsDOM",tagsDOM)
   tagsDOM.forEach(tag => {
-    ingredientsSetFiltered.forEach(ingredient => {
-      if(tag.innerText.toLowerCase().trim() === ingredient.toLowerCase()) {
-        ingredientsSetFiltered.delete(ingredient);
+    ingredientsSetFiltered.forEach(item => {
+      if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
+        ingredientsSetFiltered.delete(item);
+      }
+    }) ||
+    applianceSetFiltered.forEach(item => {
+      if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
+        applianceSetFiltered.delete(item);
+      }
+    }) ||
+    ustensilsSetFiltered.forEach(item => {
+      if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
+        ustensilsSetFiltered.delete(item);
       }
     })
   })
 
   addItemsToDropdown(ingredientsSetFiltered, ingredientsContainer);
-  console.log("ingredientsSetFiltered", ingredientsSetFiltered);
+  addItemsToDropdown(applianceSetFiltered, appliancesContainer);
+  addItemsToDropdown(ustensilsSetFiltered, ustensilsContainer);
 }
 
 function removeTag(event, array) {
@@ -78,6 +101,8 @@ function removeTag(event, array) {
 		recipesContainer.innerHTML = "";
 		createRecipeList(recipes);
     addItemsToDropdown(ingredientsNoRepeat, ingredientsContainer);
+    addItemsToDropdown(AppliancesNoRepeat,  appliancesContainer);
+    addItemsToDropdown(UstensilsNoRepeat, ustensilsContainer);
 	} 
   else {
 		filterRecipesByTags(array);
