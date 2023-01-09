@@ -2,9 +2,15 @@ const searchIngredients = document.querySelector(".ingredients-input");
 const searchAppliance = document.querySelector(".appliance-input");
 const searchUstensils = document.querySelector(".ustensils-input");
 
-searchIngredients.addEventListener("input", (event) => ((arg1, arg2) => {
-  filterItems(event, arg1, arg2);
-})(ingredientsNoRepeat, ingredientsContainer));
+function searchInDropdown(searchInput, filteredSet, container) {
+
+  searchInput.addEventListener("input", (event) => ((arg1, arg2) => {
+    filterItems(event, arg1, arg2);
+  })(filteredSet, container));
+}
+searchInDropdown(searchIngredients, ingredientsNoRepeat, ingredientsContainer);
+searchInDropdown(searchAppliance, AppliancesNoRepeat, appliancesContainer);
+searchInDropdown(searchUstensils, UstensilsNoRepeat, ustensilsContainer);
 
 searchAppliance.addEventListener("input", (event) => ((arg1, arg2) => {
   filterItems(event, arg1, arg2);

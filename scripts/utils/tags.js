@@ -88,6 +88,11 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
   addItemsToDropdown(ingredientsSetFiltered, ingredientsContainer);
   addItemsToDropdown(applianceSetFiltered, appliancesContainer);
   addItemsToDropdown(ustensilsSetFiltered, ustensilsContainer);
+
+  searchInDropdown(searchIngredients, ingredientsSetFiltered, ingredientsContainer);
+  searchInDropdown(searchAppliance, applianceSetFiltered, appliancesContainer);
+  searchInDropdown(searchUstensils, ustensilsSetFiltered, ustensilsContainer);
+
 }
 
 function removeTag(event, array) {
