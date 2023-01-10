@@ -15,8 +15,8 @@ class RecipeCard {
     const card = `
       <div class="col-12 col-lg-4">
         <div class="card">
-          <img style="height: 180px" class="card-img-top bg-light py-4">
-          <div class="card-body">
+          <img style="height: 180px" class="card-img-top bg-secondary py-4">
+          <div class="card-body bg-light">
             <h5 class="card-tilte">${this._name}</h5>
             <span>
               <i class="bi bi-clock"></i> ${this._time} min

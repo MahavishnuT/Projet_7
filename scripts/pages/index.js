@@ -50,7 +50,9 @@ for (let i = 0; i < recipes.length; i++) {
   container.innerHTML = "";
   norepeat.forEach(item => {
     container.innerHTML += `
-    <li class="dropdown-item text-white" onclick="addTagToContainer(event)">${item.charAt(0).toUpperCase() + item.slice(1)}</li>
+    <div class="col-4">
+      <li class="dropdown-item text-white" onclick="addTagToContainer(event)">${item.charAt(0).toUpperCase() + item.slice(1)}</li>
+    </div>
     `
   });
 }

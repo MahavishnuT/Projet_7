@@ -46,27 +46,36 @@
       
       <div class="row" id="searchs">
         <div class="col-lg-3 col-4">
-          <button class="btn btn-primary py-3 w-100 text-start dropdown-toggle btn-ingredients" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-primary py-3 w-100 text-start dropdown-toggle btn-ingredients" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-offset="0,-5" aria-expanded="false">
             <input type="text" placeholder="Ingrédients" class="  border-0 shadow-none ingredients-input"> <i class="bi bi-chevron-down"></i>
           </button>
-          <ul class="dropdown-menu ingredients-container bg-primary" aria-labelledby="dropdownMenuButton1">
+          <ul class="dropdown-menu ingredients-list" aria-labelledby="dropdownMenuButton1">
             <div class="container">
-              <div class="row gy-4 mb-4"></div>
+              <div class="row mb-4 ingredients-container"></div>
             </div>
           </ul>
         </div>
         <div class="col-lg-3 col-4">
-          <button class="btn btn-success py-3 w-100 text-start dropdown-toggle btn-appliance" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-success py-3 w-100 text-start dropdown-toggle btn-appliance" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          data-bs-offset="0,-5" aria-expanded="false">
             <input type="text" placeholder="Appareils" class=" border-0 shadow-none  appliance-input"> <i class="bi bi-chevron-down"></i>
           </button>
-          <ul class="dropdown-menu appliances-container bg-success" aria-labelledby="dropdownMenuButton1">
+          <ul class="dropdown-menu appliances-list " aria-labelledby="dropdownMenuButton1">
+            <div class="container">
+              <div class="row mb-4 appliances-container"></div>
+            </div>
           </ul>
         </div>
         <div class="col-lg-3 col-4">
-          <button class="btn btn-danger py-3 w-100 text-start dropdown-toggle btn-ustensils" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-danger py-3 w-100 text-start dropdown-toggle btn-ustensils" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          data-bs-offset="0,-5" 
+          aria-expanded="false">
             <input type="text" placeholder="Ustensiles" class=" border-0 shadow-none ustensils-input"> <i class="bi bi-chevron-down"></i>
           </button>
-          <ul class="dropdown-menu ustensils-container bg-danger" aria-labelledby="dropdownMenuButton1">
+          <ul class="dropdown-menu ustensils-list" aria-labelledby="dropdownMenuButton1">
+            <div class="container">
+              <div class="row mb-4 ustensils-container"></div>
+            </div>
           </ul>
         </div>
       </div>
@@ -86,7 +95,6 @@
   <script src="scripts/algorithms/searchBar.js"></script>
   <script src="scripts/algorithms/searchByItem.js"></script>
   <script src="scripts/utils/tags.js"></script>
-  <script src="scripts/utils/chevrons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
