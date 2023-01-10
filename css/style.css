@@ -166,3 +166,52 @@ h1 {
 .dropdown-item {
   font-family: "Lato", sans-serif;
 }
+
+/* Cards */
+
+.card {
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  min-height: 170px;
+}
+
+.card-body {
+  height: 210px;
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+}
+
+.row-1-card, .row-2-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-1-card {
+  margin-bottom: 10px;
+}
+.card-time, .fa-clock {
+  font-weight: bold;
+}
+.card-title {
+  font-size: 8px;
+}
+
+.row-2-card {
+  font-size: 12px;
+  line-height: 13px;
+}
+.card-ingredients {
+  width: 45%;
+}
+.card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  height: 117px;
+  text-overflow: ellipsis;
+  width: 50%;
+}

@@ -17,13 +17,17 @@ class RecipeCard {
         <div class="card">
           <img style="height: 180px" class="card-img-top bg-secondary py-4">
           <div class="card-body bg-light">
-            <h5 class="card-tilte">${this._name}</h5>
-            <span>
-              <i class="bi bi-clock"></i> ${this._time} min
-            </span>
-            <p class="card-text">${this._description}</p>
-            <div>
+            <div class="row-1-card">
+              <h5 class="card-tilte">${this._name}</h5>
+              <span class="card-time">
+              <i class="fa-regular fa-clock"></i> ${this._time} min
+              </span>
+            </div>
+            <div class="row-2-card">
+              <div class="card-ingredients">
               ${getIngredients(this._ingredients).join("")} 
+              </div>
+              <p class="card-text">${this._description}</p>
             </div>
           </div>
         </div>
@@ -32,6 +36,10 @@ class RecipeCard {
     return card;
   }
 }
+
+/* <div class="container">
+<div class="row">
+  <div class="col */
 
 function getIngredients(ingredients) {
 
