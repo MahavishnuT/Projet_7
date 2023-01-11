@@ -6,16 +6,30 @@ function addTagToContainer(event) {
   arrayOfTagItems.push(event.target.textContent);
 
   tagsContainer.innerHTML += `
-    <div class="col-2">
-      <div class="py-2 tag-item">
-        ${event.target.textContent}
-        <button onclick="removeTag(event, arrayOfTagItems)">
-          <i class="bi bi-x"></i>
+    <div class="col-2 tag-col">
+      <div class="py-2 tag-item ${colorForTag(event)}">
+        <span class="tag-text">
+          ${event.target.textContent}
+        </span>
+        <button onclick="removeTag(event, arrayOfTagItems)" class="close-tag-button">
+          <i class="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
     </div>
   `
   filterRecipesByTags(arrayOfTagItems, event);
+}
+
+function colorForTag(event) {
+  if(event.target.parentElement.parentElement.classList.contains("ingredients-container")) {
+    return (`tag-item-blue`);
+  }
+  else if(event.target.parentElement.parentElement.classList.contains("appliances-container")) {
+    return (`tag-item-green`);
+  }
+  else if(event.target.parentElement.parentElement.classList.contains("ustensils-container")) {
+    return (`tag-item-red`);
+  }
 }
 
 function filterRecipesByTags(array) {
@@ -34,9 +48,6 @@ function filterRecipesByTags(array) {
       )
     })
   })
-
-  console.log("result", result);
-  console.log("ingredientsNoRepeat", ingredientsNoRepeat);
 
   if (result.length) {
     recipesContainer.innerHTML = "";

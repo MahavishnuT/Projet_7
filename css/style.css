@@ -165,6 +165,55 @@ h1 {
 
 .dropdown-item {
   font-family: "Lato", sans-serif;
+  cursor: pointer;
+}
+.ingredients-container .dropdown-item:hover {
+  background-color: #77A7EE;
+}
+.appliances-container .dropdown-item:hover {
+  background-color: #BAEED6;
+}
+.ustensils-container .dropdown-item:hover {
+  background-color: #EEA39B;
+}
+
+/* Tags */
+
+.tag-col {
+  width: fit-content ;
+}
+
+.tag-item {
+  font-family: "Lato", sans-serif;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.tag-item-blue {
+  background-color: #3282F7;
+}
+.tag-item-green {
+  background-color: #68D9A4;
+}
+.tag-item-red {
+  background-color: #ED6454;
+}
+
+.tag-text {
+  margin: 0 10px;
+}
+
+.close-tag-button {
+  background-color: inherit;
+  border: none;
+  color: white;
+  padding: 0 10px 0 0;
+}
+
+.fa-circle-xmark {
+  pointer-events: none;
 }
 
 /* Cards */
