@@ -68,22 +68,18 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
   const tagsDOM = document.querySelectorAll(".tag-item");
   console.log("tagsDOM",tagsDOM)
   tagsDOM.forEach(tag => {
-    ingredientsSetFiltered.forEach(item => {
+    deleteClickedItemFromSet(ingredientsSetFiltered, tag) ||
+    deleteClickedItemFromSet(applianceSetFiltered, tag) ||
+    deleteClickedItemFromSet(ustensilsSetFiltered, tag)
+  })
+
+  function deleteClickedItemFromSet(setFiltered, tag) {
+    setFiltered.forEach(item => {
       if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
-        ingredientsSetFiltered.delete(item);
-      }
-    }) ||
-    applianceSetFiltered.forEach(item => {
-      if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
-        applianceSetFiltered.delete(item);
-      }
-    }) ||
-    ustensilsSetFiltered.forEach(item => {
-      if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
-        ustensilsSetFiltered.delete(item);
+        setFiltered.delete(item);
       }
     })
-  })
+  }
 
   addItemsToDropdown(ingredientsSetFiltered, ingredientsContainer);
   addItemsToDropdown(applianceSetFiltered, appliancesContainer);
