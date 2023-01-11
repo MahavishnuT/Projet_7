@@ -7,12 +7,25 @@ function filterRecipes(e) {
   
   if(searchedString.length >= 3) {
     recipesContainer.innerHTML = "";
+    const result = [];
+
+    for (let i = 0; i < recipes.length; i++) {
+      const { name, ingredients, description } = recipes[i];
+      const includesName = name.toLowerCase().includes(searchedString);
+      const includesDescription = description.toLowerCase().includes(searchedString);
+      let includesIngredients = false;
+      for (let j = 0; j < ingredients.length; j++) {
+        if (ingredients[j].ingredient.toLowerCase().includes(searchedString)) {
+          includesIngredients = true;
+        }        
+      }
+
+      if (includesName || includesDescription || includesIngredients) {
+        result.push(recipes[i]);
+      }
+
+    }
     
-    const result = recipes.filter(recipe => {
-      return (recipe.name.toLowerCase().includes(searchedString) || 
-      recipe.description.toLowerCase().includes(searchedString) ||
-      recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(searchedString)))      
-    })
     createRecipeList(result);
 
     if(!result.length) {
