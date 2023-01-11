@@ -14,11 +14,12 @@ function filterRecipes(e) {
       recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(searchedString)))      
     })
     createRecipeList(result);
-
+    filterItemListsByRecipeResult(result);
+    
     if(!result.length) {
       recipesContainer.innerHTML = `
-        <div class="no-result text-center">Aucune recette ne correspond à votre critère... vous pouvez
-        chercher « tarte aux pommes », « poisson », etc.</div>
+      <div class="no-result text-center">Aucune recette ne correspond à votre critère... vous pouvez
+      chercher « tarte aux pommes », « poisson », etc.</div>
       `
     }
   }
