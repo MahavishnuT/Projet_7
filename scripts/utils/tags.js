@@ -17,7 +17,7 @@ function addTagToContainer(event) {
       </div>
     </div>
   `
-  filterRecipesByTags(arrayOfTagItems, event);
+  filterRecipesByTags(arrayOfTagItems);
 }
 
 function colorForTag(event) {

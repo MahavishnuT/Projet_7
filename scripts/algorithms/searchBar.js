@@ -27,6 +27,7 @@ function filterRecipes(e) {
     }
     
     createRecipeList(result);
+    filterItemListsByRecipeResult(result);
 
     if(!result.length) {
       recipesContainer.innerHTML = `
