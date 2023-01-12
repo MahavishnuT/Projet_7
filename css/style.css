@@ -8,7 +8,6 @@
 
 *:hover {
   background-color: inherit;
-  color: inherit;
   text-decoration: none;
 }
 
@@ -68,6 +67,9 @@ h1 {
 }
 .btn-ingredients::after, .btn-appliance::after, .btn-ustensils::after {
   display: none;
+}
+.container-btn-ingredients:focus, .container-btn-appliance:focus, .container-btn-ustensils:focus {
+  width: 40vw !important;
 }
 
 .bi-chevron-down {
@@ -160,12 +162,16 @@ h1 {
 }
 
 .ingredients-list, .appliances-list, .ustensils-list {
+  width: 40vw;
   border: none;
 }
 
 .dropdown-item {
   font-family: "Lato", sans-serif;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ingredients-container .dropdown-item:hover {
   background-color: #77A7EE;

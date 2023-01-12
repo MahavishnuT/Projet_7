@@ -77,7 +77,6 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
   })
   
   const tagsDOM = document.querySelectorAll(".tag-item");
-  console.log("tagsDOM",tagsDOM)
   tagsDOM.forEach(tag => {
     deleteClickedItemFromSet(ingredientsSetFiltered, tag) ||
     deleteClickedItemFromSet(applianceSetFiltered, tag) ||
