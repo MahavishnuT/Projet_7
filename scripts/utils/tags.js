@@ -4,6 +4,7 @@ const arrayOfTagItems = [];
 
 function addTagToContainer(event) {
   arrayOfTagItems.push(event.target.textContent);
+  arrayOfTagItems.push(searchBar.value.toLowerCase());
 
   tagsContainer.innerHTML += `
     <div class="col-2 tag-col">
