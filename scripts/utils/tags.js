@@ -4,7 +4,8 @@ const arrayOfTagItems = [];
 
 function addTagToContainer(event) {
   arrayOfTagItems.push(event.target.textContent);
-
+  arrayOfTagItems.push(searchBar.value.toLowerCase());
+  
   tagsContainer.innerHTML += `
     <div class="col-2 tag-col">
       <div class="py-2 tag-item ${colorForTag(event)}">
@@ -77,7 +78,6 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
   })
   
   const tagsDOM = document.querySelectorAll(".tag-item");
-  console.log("tagsDOM",tagsDOM)
   tagsDOM.forEach(tag => {
     deleteClickedItemFromSet(ingredientsSetFiltered, tag) ||
     deleteClickedItemFromSet(applianceSetFiltered, tag) ||
