@@ -2,6 +2,10 @@ const searchBar = document.querySelector("#search-bar");
 
 searchBar.addEventListener("input", filterRecipes);
 
+/**
+ * Filter through all recipes name, ingredients and description via the main Search Bar
+ * @param {event} e 
+ */
 function filterRecipes(e) {
   const searchedString = e.target.value.toLowerCase();
   

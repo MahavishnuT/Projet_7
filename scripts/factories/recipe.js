@@ -1,3 +1,6 @@
+/**
+ * Create a recipe card with the data
+ */
 class RecipeCard {
   constructor(data) {
     this._id = data.id;
@@ -37,10 +40,11 @@ class RecipeCard {
   }
 }
 
-/* <div class="container">
-<div class="row">
-  <div class="col */
-
+/**
+ * 
+ * @param {Object} ingredients 
+ * @returns an array with all the ingredients
+ */
 function getIngredients(ingredients) {
 
   let ingredientsArray = []
@@ -53,6 +57,6 @@ function getIngredients(ingredients) {
       `
       ingredientsArray.push(itemsDOM);
     }
-  
+      
   return (ingredientsArray);
 }

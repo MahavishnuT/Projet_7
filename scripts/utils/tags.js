@@ -65,15 +65,18 @@ function filterRecipesByTags(array, recipeList) {
   })
   
   if (resultTags.length) {
-    console.log("resultTags", resultTags);
-    console.log("recipeList", recipeList);
     recipesContainer.innerHTML = "";
     createRecipeList(resultTags);
     filterItemListsByRecipeResult(resultTags)
   }
 }
 
+/**
+ * Filter the items lists with the chosen tags 
+ * @param {array} resultArrayOfObjects are the recipes left after filtering by tag
+ */
 function filterItemListsByRecipeResult(resultArrayOfObjects) {
+  // We create new Sets containing the items in the results 
   const ingredientsSetFiltered = new Set();
   resultArrayOfObjects.forEach(ingredient => {
     ingredient.ingredients.forEach(ingredient2 => {
@@ -100,6 +103,11 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
     deleteClickedItemFromSet(ustensilsSetFiltered, tag)
   })
 
+  /**
+   * Removes the tag clicked from the Set so it doesn't appear in the next user's search
+   * @param {Set} setFiltered 
+   * @param {HTMLElement} tag 
+   */
   function deleteClickedItemFromSet(setFiltered, tag) {
     setFiltered.forEach(item => {
       if(tag.innerText.toLowerCase().trim() === item.toLowerCase()) {
@@ -118,13 +126,17 @@ function filterItemListsByRecipeResult(resultArrayOfObjects) {
 
 }
 
+/**
+ * function to delete the tag from the DOM and the arrayOfTagItems
+ * @param {event} event 
+ * @param {array} array 
+ */
 function removeTag(event, array) {
   const targetedButton = event.target;
   const index = array.indexOf(targetedButton.parentElement.innerText.trim());
 
 	array.splice(index, 1);
   targetedButton.parentElement.parentElement.remove();
-  console.log("array after remove", array);
 
   if (!array.length) {
 		recipesContainer.innerHTML = "";
