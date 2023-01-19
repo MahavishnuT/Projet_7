@@ -28,6 +28,7 @@ function filterRecipes(e) {
     
     createRecipeList(result);
     filterItemListsByRecipeResult(result);
+    filterRecipesByTags(arrayOfTagItems, result);
 
     if(!result.length) {
       recipesContainer.innerHTML = `

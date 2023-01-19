@@ -4,7 +4,6 @@ const arrayOfTagItems = [];
 
 function addTagToContainer(event) {
   arrayOfTagItems.push(event.target.textContent);
-  arrayOfTagItems.push(searchBar.value.toLowerCase());
 
   tagsContainer.innerHTML += `
     <div class="col-2 tag-col">
@@ -18,7 +17,7 @@ function addTagToContainer(event) {
       </div>
     </div>
   `
-  filterRecipesByTags(arrayOfTagItems);
+  filterRecipesByTags(arrayOfTagItems, recipes);
 }
 
 function colorForTag(event) {
@@ -33,9 +32,9 @@ function colorForTag(event) {
   }
 }
 
-function filterRecipesByTags(array) {
+function filterRecipesByTags(array, recipeList) {
 
-  const result = recipes.filter((recipe) => {
+  const result = recipeList.filter((recipe) => {
     return array.every((item) => {
       const formatedItem = item.toLowerCase();
       return (
@@ -117,7 +116,7 @@ function removeTag(event, array) {
     addItemsToDropdown(UstensilsNoRepeat, ustensilsContainer);
 	} 
   else {
-		filterRecipesByTags(array);
+		filterRecipesByTags(array, recipes);
 	}
 }
 
