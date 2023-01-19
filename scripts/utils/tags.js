@@ -2,25 +2,35 @@ const tagsContainer = document.querySelector("#tags");
 const closeTagButtons = document.querySelectorAll(".close-tag");
 const arrayOfTagItems = [];
 
+
+/**
+ * Display the item that was clicked on in the tag container
+ * @param {HTMLElement} event 
+ */
 function addTagToContainer(event) {
+
   arrayOfTagItems.push(event.target.textContent);
-  arrayOfTagItems.push(searchBar.value.toLowerCase());
   
   tagsContainer.innerHTML += `
-    <div class="col-2 tag-col">
-      <div class="py-2 tag-item ${colorForTag(event)}">
+  <div class="col-2 tag-col">
+  <div class="py-2 tag-item ${colorForTag(event)}">
         <span class="tag-text">
           ${event.target.textContent}
         </span>
         <button onclick="removeTag(event, arrayOfTagItems)" class="close-tag-button">
           <i class="fa-regular fa-circle-xmark"></i>
-        </button>
+          </button>
       </div>
     </div>
-  `
-  filterRecipesByTags(arrayOfTagItems);
+    `
+  filterRecipesByTags(arrayOfTagItems, recipes);
 }
 
+/**
+ * Color the background tag selected depending whether it's an ingredient, an appliance or an ustensil
+ * @param {HTMLElement} event 
+ * @returns a class name associated with the CSS
+ */
 function colorForTag(event) {
   if(event.target.parentElement.parentElement.classList.contains("ingredients-container")) {
     return (`tag-item-blue`);
@@ -33,9 +43,13 @@ function colorForTag(event) {
   }
 }
 
-function filterRecipesByTags(array) {
+/**
+ * Filter and display all the recipes containing the tag(s) in their ingredients, appliance or ustensils
+ * @param {array} array 
+ */
+function filterRecipesByTags(array, recipeList) {
 
-  const result = recipes.filter((recipe) => {
+  const resultTags = recipeList.filter((recipe) => {
     return array.every((item) => {
       const formatedItem = item.toLowerCase();
       return (
@@ -49,11 +63,13 @@ function filterRecipesByTags(array) {
       )
     })
   })
-
-  if (result.length) {
+  
+  if (resultTags.length) {
+    console.log("resultTags", resultTags);
+    console.log("recipeList", recipeList);
     recipesContainer.innerHTML = "";
-    createRecipeList(result);
-    filterItemListsByRecipeResult(result)
+    createRecipeList(resultTags);
+    filterItemListsByRecipeResult(resultTags)
   }
 }
 
@@ -108,6 +124,7 @@ function removeTag(event, array) {
 
 	array.splice(index, 1);
   targetedButton.parentElement.parentElement.remove();
+  console.log("array after remove", array);
 
   if (!array.length) {
 		recipesContainer.innerHTML = "";
@@ -117,7 +134,7 @@ function removeTag(event, array) {
     addItemsToDropdown(UstensilsNoRepeat, ustensilsContainer);
 	} 
   else {
-		filterRecipesByTags(array);
+		filterRecipesByTags(array, recipes);
 	}
 }
 

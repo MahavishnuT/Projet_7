@@ -5,6 +5,10 @@ const appliancesContainer = document.querySelector(".appliances-container");
 const ustensilsContainer = document.querySelector(".ustensils-container");
 const tagItems = document.querySelectorAll(".tag-items");
 
+/**
+ * Display all the recipes in the DOM
+ * @param {array} filteredArray 
+ */
 function createRecipeList(filteredArray) {
   filteredArray.forEach(recipe => {
     recipesContainer.innerHTML += new RecipeCard(recipe).recipeCard;
